@@ -52,15 +52,24 @@
                         <input type="color" id="colorPicker" value="#000000">
                         <div class="color-display" id="colorDisplay"></div>
                     </div>
-                    <div class="preset-colors">
-                        <button class="preset-color" style="background: #000000;" data-color="#000000"></button>
-                        <button class="preset-color" style="background: #ffffff;" data-color="#ffffff"></button>
-                        <button class="preset-color" style="background: #ff0000;" data-color="#ff0000"></button>
-                        <button class="preset-color" style="background: #00ff00;" data-color="#00ff00"></button>
-                        <button class="preset-color" style="background: #0000ff;" data-color="#0000ff"></button>
-                        <button class="preset-color" style="background: #ffff00;" data-color="#ffff00"></button>
-                        <button class="preset-color" style="background: #ff00ff;" data-color="#ff00ff"></button>
-                        <button class="preset-color" style="background: #00ffff;" data-color="#00ffff"></button>
+                    <div class="color-subsection">
+                        <h4>Recent Colors</h4>
+                        <div id="recentColors" class="recent-colors">
+                            <span class="no-recent-colors">No recent colors yet</span>
+                        </div>
+                    </div>
+                    <div class="color-subsection">
+                        <h4>Preset Colors</h4>
+                        <div class="preset-colors">
+                            <button class="preset-color" style="background: #000000;" data-color="#000000"></button>
+                            <button class="preset-color" style="background: #ffffff;" data-color="#ffffff"></button>
+                            <button class="preset-color" style="background: #ff0000;" data-color="#ff0000"></button>
+                            <button class="preset-color" style="background: #00ff00;" data-color="#00ff00"></button>
+                            <button class="preset-color" style="background: #0000ff;" data-color="#0000ff"></button>
+                            <button class="preset-color" style="background: #ffff00;" data-color="#ffff00"></button>
+                            <button class="preset-color" style="background: #ff00ff;" data-color="#ff00ff"></button>
+                            <button class="preset-color" style="background: #00ffff;" data-color="#00ffff"></button>
+                        </div>
                     </div>
                 </div>
 
@@ -73,6 +82,57 @@
 
             <div class="canvas-container">
                 <canvas id="pixelCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced Color Picker Modal -->
+    <div id="colorPickerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Advanced Color Picker</h2>
+                <button class="modal-close" id="closeColorPicker">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="color-picker-advanced">
+                    <div class="color-square-container">
+                        <canvas id="colorSquare" width="250" height="250"></canvas>
+                        <div id="squareCursor" class="square-cursor"></div>
+                    </div>
+                    <div class="hue-slider-container">
+                        <canvas id="hueSlider" width="30" height="250"></canvas>
+                        <div id="hueCursor" class="hue-cursor"></div>
+                    </div>
+                </div>
+                <div class="color-preview-section">
+                    <div class="color-preview-box">
+                        <div id="selectedColorPreview" class="selected-color-preview"></div>
+                        <div class="color-values">
+                            <div class="color-value-group">
+                                <label>HEX</label>
+                                <input type="text" id="hexInput" value="#000000" maxlength="7">
+                            </div>
+                            <div class="rgb-inputs">
+                                <div class="color-value-group">
+                                    <label>R</label>
+                                    <input type="number" id="rInput" min="0" max="255" value="0">
+                                </div>
+                                <div class="color-value-group">
+                                    <label>G</label>
+                                    <input type="number" id="gInput" min="0" max="255" value="0">
+                                </div>
+                                <div class="color-value-group">
+                                    <label>B</label>
+                                    <input type="number" id="bInput" min="0" max="255" value="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="applyColorBtn" class="action-btn primary">Apply Color</button>
+                    <button id="cancelColorBtn" class="action-btn">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
